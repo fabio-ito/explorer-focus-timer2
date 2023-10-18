@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 240;
+  --bg-primary: hsla(0, 0%, 100%, 1);
+
+  --bg-button-primary: hsla(var(--hue), 9%, 89%, 1);
+  --bg-button-secondary: hsla(194, 97%, 31%, 1);
+
+  --fc-primary: hsla(var(--hue), 6%, 21%, 1);
+  --fc-timer: hsla(var(--hue), 6%, 21%, 1);
+  --fc-secondary: hsla(0, 0%, 100%, 1);
+
+  font-size: 62.5%;
+
+  font-family: "Roboto", sans-serif;
+}
+html.dark {
+  --bg-primary: hsl(0, 0%, 0%);
+  --fc-timer: hsl(240, 100%, 100%);
+}
+
+html.dark .ph-moon,
+html:not(.dark) .ph-sun {
+  display: none;
+}
+
+body {
+  font-size: 1.6rem;
+
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  background-color: var(--bg-primary);
+
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr; */
+}
+
+#toggle-mode {
+  position: absolute;
+  right: 3.2rem;
+  top: 3.2rem;
+
+  font-size: 3.2rem;
+
+  background-color: transparent;
+  border: none;
+
+  color: var(--fc-timer);
+
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  gap: 19rem;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  appearance: none;
+}
+
+.flex {
+  display: flex;
+}
+
+#timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#timer {
+  font-size: 12.6rem;
+  color: var(--fc-timer);
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 4rem; */
+}
+
+#controls button {
+  background: none;
+  border: none;
+
+  /* width: 4.8rem; */
+  font-size: 4.8rem;
+  color: var(--fc-timer);
+
+  cursor: pointer;
+}
+
+#sounds-container {
+  grid-column: 2/3;
+
+  display: grid;
+
+  grid-template: 1fr 1fr / 1fr 1fr;
+
+  /* max-width: 30.8rem; */
+
+  gap: 3.2rem;
+}
+
+#sounds-container button {
+  width: 13rem;
+  height: 13rem;
+
+  font-size: 4rem;
+  color: var(--fc-primary);
+
+  border: none;
+  border-radius: 2.4rem;
+
+  background-color: var(--bg-button-primary);
+
+  cursor: pointer;
+
+  transition: all 0.1s ease;
+}
+
+#sounds-container button:hover {
+  color: var(--fc-secondary);
+  background-color: rgb(149, 149, 153);
+}
+
+#sounds-container button.active {
+  color: var(--fc-secondary);
+  background-color: var(--bg-button-secondary);
+}
